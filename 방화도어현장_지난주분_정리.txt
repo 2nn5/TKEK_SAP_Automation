@@ -1,0 +1,41 @@
+01 WIN키 누른 채로 P 입력
+02 1700x820 위치 클릭 후 1초 대기
+03 win키 누른 채로 R 입력
+04 C:\Program Files (x86)\SAP\FrontEnd\SAPgui\saplogon.exe 입력 후 1초 대기 후 ENTER
+
+05 ALT키 누른 채로 L 입력
+06 200x205 위치 클릭
+07 사번 입력 (사번은 C:\Temp\sap_id.txt 내 첫줄 데이터 확인)
+08 200x228 위치 클릭
+09 비번 입력 (비번은 C:\Temp\sap_id.txt 내 둘째줄 데이터 확인)
+
+10 100x55 위치 클릭
+11 ZKPPR0092 입력 후 1초 대기 후 ENTER
+
+12 다음주 일요일 날짜 확인 후, YYYYMMDD 형식으로 abcdefgh에 저장
+13 다음주 토요일 날짜 확인 후, YYYYMMDD 형식으로 ijklmnop에 저장
+12 41x205 위치 클릭 후 1초 대기
+13 315x205 위치 클릭 후 1초 대기
+14 abcd.ef.gh 입력 후 1초 대기
+15 ijkl.mn.op 입력 후 1초 대기
+16 185x337 클릭
+17 F8키 입력
+
+18 25x1135 위치 색상 인식하여 1초마다 확인
+19 색상 RGB값이 (251,179,7)일 때 대기
+
+20 366x130 위치 클릭 후 1초 대기
+21 430x198 위치 클릭 후 1초 대기
+
+22 아래 화살표 1번 누르기
+23 TAP키 입력 후 1초 대기 후 ENTER키 입력
+
+24 SHIFT키 누른 채로 TAP키 입력
+25 C:\Temp\FP_DOOR_SCHEDULE\ 입력
+26 TAP 키 입력 후 1초 대기
+27 "생산계획_cdefgh-klmnop.XLS" 입력(c~p값은 앞서 저장한 값 인식하여 입력)
+28 TAP 키 입력 후 0.5초 대기 후 TAP 키 입력 후 1초 대기 후 ENTER
+
+29 WIN키 누른 채로 R 입력
+30 C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE 입력 후 1초 대기 후 ENTER
+
