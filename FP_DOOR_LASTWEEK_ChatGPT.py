@@ -253,7 +253,7 @@ def main():
     # # gui.press("tab"); time.sleep(1)
 
     # # 27 "생산계획_cdefgh-klmnop.XLS" 입력 (cdefgh/klmnop = YYMMDD)
-    filename = f"Producion-Plan_{cdefgh}-{klmnop}.XLS"
+    filename = f"Production-Plan-FP-Door_{cdefgh}-{klmnop}.XLS"
     gui.hotkey("Ctrl", "a"); time.sleep(1)
     gui.write(filename, interval=TYPE_INTERVAL); time.sleep(1)
 
