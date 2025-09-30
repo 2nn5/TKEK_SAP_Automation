@@ -1,0 +1,23 @@
+function main(workbook: ExcelScript.Workbook) {
+	let selectedSheet = workbook.getActiveWorksheet();
+	// Delete range 1:6 on selectedSheet
+	selectedSheet.getRange("1:3").delete(ExcelScript.DeleteShiftDirection.up);
+	// Delete range 2:2 on selectedSheet
+	selectedSheet.getRange("2:2").delete(ExcelScript.DeleteShiftDirection.up);
+	// Delete range A:B on selectedSheet
+	selectedSheet.getRange("A:A").delete(ExcelScript.DeleteShiftDirection.left);
+	// Delete range B:B on selectedSheet
+	// selectedSheet.getRange("B:B").delete(ExcelScript.DeleteShiftDirection.left);
+	// Auto fit the columns of all cells on selectedSheet
+	selectedSheet.getRange().getFormat().autofitColumns();
+	// This action currently can't be recorded.
+	// Clear ExcelScript.ClearApplyTo.contents from extended range obtained by extending down, down, right, then down from range I1 on selectedSheet
+	selectedSheet.getRange("I1").getRangeEdge(ExcelScript.KeyboardDirection.down).getRangeEdge(ExcelScript.KeyboardDirection.down).getExtendedRange(ExcelScript.KeyboardDirection.right).getExtendedRange(ExcelScript.KeyboardDirection.down).clear(ExcelScript.ClearApplyTo.contents);
+	// Set the frozen range B2 on selectedSheet
+	selectedSheet.getFreezePanes().freezeAt(selectedSheet.getRange("A1"));
+	// Toggle auto filter on selectedSheet
+	selectedSheet.getAutoFilter().apply(selectedSheet.getRange("A1"));
+	// Apply custom filter on selectedSheet
+	selectedSheet.getAutoFilter().apply(selectedSheet.getAutoFilter().getRange(), 11, { filterOn: ExcelScript.FilterOn.custom, criterion1: "=*fp*" });
+	
+}
