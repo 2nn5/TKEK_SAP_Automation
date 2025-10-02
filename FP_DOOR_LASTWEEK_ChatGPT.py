@@ -18,16 +18,17 @@ EXPORT_DIR = r"C:\Temp\FP_DOOR_SCHEDULE\\"
 OUTLOOK_EXE = r"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE"
 
 # 좌표 (픽셀). 필요시 조정
-POS_PROJECT_MENU = (1700, 820)  # 02
-POS_ID_FIELD     = (200, 205)   # 06, 07 사번 입력
-POS_PW_FIELD     = (200, 228)   # 08, 09 비번 입력
-POS_TOPLEFT_CELL = (100, 55)    # 10
-POS_PRODUC_SCH   = (41, 205)    # 12 생산계획일 선택
-POS_FROM_FIELD     = (285, 205)   # 13 생산계획 시작일
-POS_EXECUTE_BTN  = (185, 337)   # 16
-POS_WAIT_PIXEL   = (25, 1135)   # 18 (색상 확인)
-POS_MENU_CLICK_1 = (366, 130)   # 20
-POS_MENU_CLICK_2 = (430, 198)   # 21
+POS_PROJECT_MENU    = (1700, 820)  # 02
+POS_ID_FIELD        = (200, 205)   # 06, 07 사번 입력
+POS_PW_FIELD        = (200, 228)   # 08, 09 비번 입력
+POS_TOPLEFT_CELL    = (100, 55)    # 10
+POS_PRODUC_SCH      = (41, 205)    # 12 생산계획일 선택
+POS_FROM_FIELD      = (285, 205)   # 13 생산계획 시작일
+POS_WAIT_EXPORT     = (500, 155)   # EXPORT 메뉴 열리는지 색상 확인
+POS_EXECUTE_BTN     = (185, 337)   # 16
+POS_WAIT_PIXEL      = (25, 1135)   # 18 (색상 확인)
+POS_MENU_CLICK_1    = (366, 130)   # 20
+POS_MENU_CLICK_2    = (430, 198)   # 21
 
 TARGET_RGB = (251, 179, 7)      # 19에서 감시할 색상
 
@@ -228,6 +229,20 @@ def main():
     # gui.click(*POS_MENU_CLICK_2); time.sleep(2)
     keyboard.press_and_release("L"); time.sleep(1)
 
+    # ----------------------------------------------------------------------
+    # 색상 RGB값이 (255,255,255) 생길 때까지 대기 -> 10/02 추가분
+    while True:
+        gui.click(POS_WAIT_EXPORT)    # POS_WAIT_EXPORT = (500, 155)
+        try:
+            px = gui.pixel(POS_WAIT_EXPORT)
+        except Exception:
+            px = (-1, -1, -1)
+        if _same_color(px, (255, 255, 255), tol=0):
+            time.sleep(1)    # 안정화 대기
+            break
+        time.sleep(1)    # 1초마다 재시도 (클릭+체크)
+    # ----------------------------------------------------------------------
+    
     # # 22 아래 화살표 1번 누르기
     keyboard.press_and_release("down"); time.sleep(1)
     # # gui.press("down")
